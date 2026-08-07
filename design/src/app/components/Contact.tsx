@@ -1,5 +1,12 @@
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram } from "lucide-react";
 import { useState } from "react";
+import { SOCIAL } from "../social";
+
+const CLUB_EMAIL = "wktp@up.poznan.pl";
+
+// Reliable, keyless Google Maps embed for a free-text address query.
+const mapEmbed = (query: string) =>
+  `https://maps.google.com/maps?q=${encodeURIComponent(query)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -15,12 +22,29 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Dziękujemy za wiadomość! Skontaktujemy się wkrótce.");
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    // No backend yet: open the visitor's mail client with a pre-filled message
+    // addressed to the club. (See note about a proper form service.)
+    const subject = `[Strona WWW] ${formData.subject || "Wiadomość"} — ${formData.name}`;
+    const body = [
+      `Imię i nazwisko: ${formData.name}`,
+      `Email: ${formData.email}`,
+      `Telefon: ${formData.phone}`,
+      `Temat: ${formData.subject}`,
+      "",
+      formData.message,
+    ].join("\n");
+    window.location.href = `mailto:${CLUB_EMAIL}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
   };
 
   const handleCallbackSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = "Prośba o kontakt telefoniczny (strona WWW)";
+    const body = `Proszę o kontakt telefoniczny pod numerem: ${callbackPhone}`;
+    window.location.href = `mailto:${CLUB_EMAIL}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
     setCallbackSent(true);
     setCallbackPhone("");
   };
@@ -97,7 +121,7 @@ export function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Form */}
-            <div>
+            <div id="formularz" className="scroll-mt-24">
               <p className="text-red-600 text-sm font-semibold uppercase tracking-widest mb-4">
                 Formularz
               </p>
@@ -272,7 +296,7 @@ export function Contact() {
               <h3 className="font-bold mb-4">Śledź nas w mediach społecznościowych</h3>
               <div className="flex gap-3">
                 <a
-                  href="https://facebook.com/wktp"
+                  href={SOCIAL.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 transition-colors font-semibold text-sm"
@@ -280,7 +304,7 @@ export function Contact() {
                   <Facebook className="w-5 h-5" /> Facebook
                 </a>
                 <a
-                  href="https://instagram.com/wktp"
+                  href={SOCIAL.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-5 py-2.5 rounded-xl hover:opacity-90 transition-opacity font-semibold text-sm"
@@ -288,7 +312,7 @@ export function Contact() {
                   <Instagram className="w-5 h-5" /> Instagram
                 </a>
                 <a
-                  href="https://tiktok.com/@wktp"
+                  href={SOCIAL.tiktok}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-black text-white px-5 py-2.5 rounded-xl hover:bg-gray-800 transition-colors font-semibold text-sm"
@@ -325,7 +349,7 @@ export function Contact() {
               </div>
               <div className="h-72 bg-gray-200 relative overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps?q=Osiedlowy%20Dom%20Kultury%20Wiktoria%2C%20os.%20Zwyci%C4%99stwa%20125%2C%20Pozna%C5%84&output=embed"
+                  src={mapEmbed("Osiedlowy Dom Kultury Wiktoria, os. Zwycięstwa 125, 61-652 Poznań")}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -355,7 +379,7 @@ export function Contact() {
               </div>
               <div className="h-72 bg-gray-200 relative overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps?q=Zesp%C3%B3%C5%82%20Szkolno-Przedszkolny%20nr%2012%2C%20os.%20Zwyci%C4%99stwa%20101%2C%20Pozna%C5%84&output=embed"
+                  src={mapEmbed("Zespół Szkolno-Przedszkolny nr 12, os. Zwycięstwa 101, 61-652 Poznań")}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

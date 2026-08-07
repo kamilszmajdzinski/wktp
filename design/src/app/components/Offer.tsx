@@ -194,7 +194,7 @@ export function Offer() {
                     ))}
                   </div>
 
-                  <div className="space-y-3">
+                  <div className="space-y-3 mb-8">
                     {spectacle.highlights.map((highlight) => (
                       <div key={highlight} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
@@ -202,6 +202,13 @@ export function Offer() {
                       </div>
                     ))}
                   </div>
+
+                  <Link
+                    to="/galeria?kategoria=spektakle"
+                    className="inline-flex items-center gap-2 bg-red-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-800 transition-colors"
+                  >
+                    Zobacz więcej zdjęć <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </div>
               </div>
             ))}
@@ -303,24 +310,14 @@ export function Offer() {
             </div>
           </div>
 
-          {/* Dance Couple Photo Gallery */}
-          <div className="mt-14">
-            <h3 className="text-2xl font-bold text-center mb-8">Galeria zdjęć</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                { src: "https://images.unsplash.com/photo-1716486174567-f0c042d4bcf1?w=600&h=450&fit=crop&auto=format", alt: "Pokaz taneczny 1" },
-                { src: "https://images.unsplash.com/photo-1757386491857-15ab7c25c4b3?w=600&h=450&fit=crop&auto=format", alt: "Polonez" },
-                { src: "https://images.unsplash.com/photo-1767786394008-77c66239c3a6?w=600&h=450&fit=crop&auto=format", alt: "Pokaz taneczny 3" },
-              ].map((img, i) => (
-                <div key={i} className="rounded-2xl overflow-hidden shadow-lg h-64">
-                  <ImageWithFallback
-                    src={img.src}
-                    alt={img.alt}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              ))}
-            </div>
+          {/* Link to full show gallery */}
+          <div className="mt-12 text-center">
+            <Link
+              to="/galeria?kategoria=pokazy"
+              className="inline-flex items-center gap-2 bg-red-700 text-white px-8 py-4 rounded-lg font-semibold hover:bg-red-800 transition-colors text-lg"
+            >
+              Zobacz więcej zdjęć <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </div>
@@ -382,8 +379,8 @@ export function Offer() {
                     desc: "Edukacyjne zajęcia dla dzieci i młodzieży, łączące naukę tańca z poznawaniem polskich tradycji i historii regionalnej.",
                   },
                   {
-                    title: "Warsztaty tematyczne",
-                    desc: "Specjalistyczne warsztaty poświęcone konkretnym tańcom lub okresom — tańce karnawałowe, świąteczne, narodowe.",
+                    title: "Warsztaty dla grup tanecznych",
+                    desc: "Specjalistyczne warsztaty poświęcone konkretnym tańcom lub kształtowaniu postawy tanecznej w celu rozwoju techniki tańca.",
                   },
                 ].map((item) => (
                   <div key={item.title} className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">

@@ -1,7 +1,9 @@
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Facebook, Instagram, ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { SOCIAL, SIGNUP_LINK } from "../social";
+import { Logo } from "./Logo";
 
 const categories = [
   {
@@ -55,7 +57,16 @@ const categories = [
 ];
 
 export function Gallery() {
+  const [searchParams] = useSearchParams();
   const [activeCategory, setActiveCategory] = useState("turnieje");
+
+  // Allow deep links like /galeria?kategoria=spektakle (used by the Oferta page).
+  useEffect(() => {
+    const kategoria = searchParams.get("kategoria");
+    if (kategoria && categories.some((c) => c.id === kategoria)) {
+      setActiveCategory(kategoria);
+    }
+  }, [searchParams]);
 
   const current = categories.find((c) => c.id === activeCategory)!;
 
@@ -91,7 +102,7 @@ export function Gallery() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
-              href="https://facebook.com/wktp"
+              href={SOCIAL.facebook}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
@@ -100,16 +111,16 @@ export function Gallery() {
               Facebook WKTP
             </a>
             <a
-              href="https://instagram.com/wktp"
+              href={SOCIAL.instagram}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
             >
               <Instagram className="w-5 h-5" />
-              Instagram @wktp
+              Instagram @wktp_poznan
             </a>
             <a
-              href="https://tiktok.com/@wktp"
+              href={SOCIAL.tiktok}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors"
@@ -117,7 +128,7 @@ export function Gallery() {
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.72a8.17 8.17 0 004.77 1.52V6.79a4.85 4.85 0 01-1-.1z" />
               </svg>
-              TikTok @wktp
+              TikTok @wktp_poznan
             </a>
           </div>
         </div>
@@ -220,7 +231,9 @@ export function Gallery() {
       {/* Large CTA — Join the club */}
       <div className="py-24 bg-red-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-5xl mb-6">💃🕺</div>
+          <div className="inline-block bg-black rounded-2xl p-4 mb-6">
+            <Logo className="h-44 w-44 object-contain" />
+          </div>
           <h2 className="text-4xl font-bold mb-6">
             Chcesz być częścią naszej historii?
           </h2>
@@ -229,7 +242,7 @@ export function Gallery() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
-              to="/zajecia"
+              to={SIGNUP_LINK}
               className="inline-flex items-center gap-2 bg-white text-red-700 px-10 py-4 rounded-lg font-semibold hover:bg-red-50 transition-colors text-lg"
             >
               Zapisz się na zajęcia <ArrowRight className="w-5 h-5" />

@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ArrowRight } from "lucide-react";
+import { SIGNUP_LINK } from "../social";
 
 const dances = [
   {
@@ -123,9 +124,6 @@ export function NationalDances() {
                       alt={dance.name}
                       className="w-full h-[440px] object-cover hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute top-4 left-4 bg-red-700 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                      {dance.tag}
-                    </div>
                   </div>
                 </div>
 
@@ -196,7 +194,7 @@ export function NationalDances() {
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
-              to="/kontakt"
+              to={SIGNUP_LINK}
               className="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white px-10 py-4 rounded-lg font-semibold hover:bg-white/20 transition-colors text-lg"
             >
               Skontaktuj się z nami

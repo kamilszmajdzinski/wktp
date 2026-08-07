@@ -1,6 +1,19 @@
 import { Link } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { Clock, MapPin, Users, CheckCircle, Star, Trophy, ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Clock, MapPin, Users, CheckCircle, Star, Trophy, ArrowRight, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { SIGNUP_LINK } from "../social";
+import { Logo } from "./Logo";
+
+// All photos dropped into src/imports/gallery/zajecia are picked up automatically.
+const zajeciaPhotos = Object.entries(
+  import.meta.glob("../../imports/gallery/zajecia/*.{jpg,jpeg,png,JPG,JPEG,PNG}", {
+    eager: true,
+    import: "default",
+  })
+)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, src]) => src as string);
 
 const groups = [
   {
@@ -10,7 +23,7 @@ const groups = [
     schedules: ["Wtorek · 17:00 – 18:30", "Piątek · 17:30 – 19:00"],
     location: "Zespół Szkolno-Przedszkolny nr 12, os. Zwycięstwa 101, Poznań",
     level: "Początkujący i średniozaawansowani",
-    price: "100 zł / miesiąc",
+    price: "80 zł / miesiąc",
     description:
       "Zajęcia dla dzieci i młodzieży łączą profesjonalną naukę tańca z wszechstronnym rozwojem, pomagając budować sprawność, charakter, pewność siebie i zamiłowanie do tańca pod okiem doświadczonych instruktorów.",
     color: "border-red-300",
@@ -25,7 +38,7 @@ const groups = [
     level: "Początkujący i średniozaawansowani",
     price: "100 zł / miesiąc",
     description:
-      "Idealne zarówno dla osób rozpoczynających przygodę z tańcem, jak i dla osób chcących doskonalić umiejętności. Przyjazna atmosfera i profesjonalna nauka — wiek nie ma znaczenia, liczy się pasja.",
+      "Idealna zarówno dla osób rozpoczynających przygodę z tańcem, jak i dla osób chcących doskonalić umiejętności. Przyjazna atmosfera i profesjonalna nauka — wiek nie ma znaczenia, liczy się pasja.",
     color: "border-gray-300",
     headerColor: "bg-gray-50",
   },
@@ -70,6 +83,30 @@ const benefits = [
 ];
 
 export function Classes() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const showPrev = () =>
+    setLightboxIndex((i) => (i === null ? i : (i - 1 + zajeciaPhotos.length) % zajeciaPhotos.length));
+  const showNext = () =>
+    setLightboxIndex((i) => (i === null ? i : (i + 1) % zajeciaPhotos.length));
+
+  // Keyboard controls + lock page scroll while the lightbox is open.
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxIndex(null);
+      else if (e.key === "ArrowRight") showNext();
+      else if (e.key === "ArrowLeft") showPrev();
+    };
+    window.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [lightboxIndex]);
+
   return (
     <div>
       {/* Hero Section */}
@@ -226,7 +263,7 @@ export function Classes() {
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
                     <span className="text-2xl font-bold text-red-700">{group.price}</span>
                     <Link
-                      to="/kontakt"
+                      to={SIGNUP_LINK}
                       className="bg-red-700 text-white px-6 py-2 rounded-lg hover:bg-red-800 transition-colors font-semibold text-sm inline-flex items-center gap-2"
                     >
                       Zapisz się <ArrowRight className="w-3 h-3" />
@@ -259,10 +296,45 @@ export function Classes() {
         </div>
       </div>
 
+      {/* Photo gallery from classes */}
+      {zajeciaPhotos.length > 0 && (
+        <div className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <p className="text-red-600 text-sm font-semibold uppercase tracking-widest mb-3">
+                Galeria
+              </p>
+              <h2 className="text-3xl font-bold mb-4">Zajęcia w obiektywie</h2>
+              <p className="text-gray-500 max-w-xl mx-auto">
+                Zobacz, jak wyglądają nasze zajęcia od środka.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {zajeciaPhotos.map((src, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setLightboxIndex(i)}
+                  className="group rounded-2xl overflow-hidden shadow-md aspect-[4/3] hover:shadow-xl transition-shadow cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-red-500"
+                  aria-label={`Powiększ zdjęcie ${i + 1}`}
+                >
+                  <img
+                    src={src}
+                    alt={`Zajęcia WKTP — zdjęcie ${i + 1}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Trial Lesson CTA — Large highlighted section */}
       <div className="py-24 bg-black text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-5xl mb-6">💃</div>
+          <Logo className="h-44 w-44 object-contain mx-auto mb-6" />
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Bezpłatna lekcja próbna!
           </h2>
@@ -274,7 +346,7 @@ export function Classes() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
-              to="/kontakt"
+              to={SIGNUP_LINK}
               className="inline-block bg-red-700 text-white px-10 py-4 rounded-lg font-semibold hover:bg-red-800 transition-colors text-lg"
             >
               Umów lekcję próbną
@@ -288,6 +360,64 @@ export function Classes() {
           </div>
         </div>
       </div>
+
+      {/* Lightbox / picture preview */}
+      {lightboxIndex !== null && (
+        <div
+          className="fixed inset-0 z-[60] bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setLightboxIndex(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            type="button"
+            onClick={() => setLightboxIndex(null)}
+            className="absolute top-4 right-4 text-white/80 hover:text-white p-2"
+            aria-label="Zamknij podgląd"
+          >
+            <X className="w-8 h-8" />
+          </button>
+
+          {zajeciaPhotos.length > 1 && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                showPrev();
+              }}
+              className="absolute left-2 sm:left-6 text-white/80 hover:text-white p-2"
+              aria-label="Poprzednie zdjęcie"
+            >
+              <ChevronLeft className="w-9 h-9" />
+            </button>
+          )}
+
+          <img
+            src={zajeciaPhotos[lightboxIndex]}
+            alt={`Zajęcia WKTP — zdjęcie ${lightboxIndex + 1}`}
+            onClick={(e) => e.stopPropagation()}
+            className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl"
+          />
+
+          {zajeciaPhotos.length > 1 && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                showNext();
+              }}
+              className="absolute right-2 sm:right-6 text-white/80 hover:text-white p-2"
+              aria-label="Następne zdjęcie"
+            >
+              <ChevronRight className="w-9 h-9" />
+            </button>
+          )}
+
+          <div className="absolute bottom-5 left-0 right-0 text-center text-white/70 text-sm">
+            {lightboxIndex + 1} / {zajeciaPhotos.length}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

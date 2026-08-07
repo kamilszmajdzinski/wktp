@@ -1,6 +1,5 @@
-import { Link } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { Trophy, Calendar, MapPin, ArrowRight } from "lucide-react";
+import { Trophy, Calendar, MapPin } from "lucide-react";
 
 const krysztalowySiewcaGallery = [
   { src: "https://images.unsplash.com/photo-1764874298962-ac0c84307fc0?w=700&h=500&fit=crop&auto=format", alt: "Kryształowy Siewca - ceremonia" },
@@ -140,24 +139,6 @@ export function Tournament() {
         </div>
       </div>
 
-      {/* CTA */}
-      <div className="py-20 bg-black text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Trophy className="w-16 h-16 text-amber-400 mx-auto mb-6" />
-          <h2 className="text-4xl font-bold mb-6">
-            Chcesz wziąć udział w kolejnej edycji?
-          </h2>
-          <p className="text-gray-300 text-xl mb-10">
-            Skontaktuj się z nami, aby dowiedzieć się o kolejnych turniejach i wydarzeniach organizowanych przez WKTP.
-          </p>
-          <Link
-            to="/kontakt"
-            className="inline-flex items-center gap-3 bg-red-700 text-white px-10 py-4 rounded-lg font-semibold hover:bg-red-800 transition-colors text-lg"
-          >
-            Skontaktuj się z nami <ArrowRight className="w-5 h-5" />
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ArrowRight } from "lucide-react";
+import { SIGNUP_LINK } from "../social";
 
 export function About() {
   const instructors = [
@@ -90,7 +91,7 @@ export function About() {
               <div className="text-8xl font-black mb-4">10+</div>
               <div className="text-2xl font-bold mb-4">Lat działalności</div>
               <p className="text-red-100 text-lg leading-relaxed">
-                Ponad dekada nieprzerwanej pracy na rzecz kultywowania polskich tradycji tanecznych w Wielkopolsce i w całej Polsce.
+                Ponad dekada nieprzerwanej pracy na rzecz kultywowania polskich tradycji tanecznych.
               </p>
             </div>
           </div>
@@ -218,7 +219,7 @@ export function About() {
               Sprawdź zajęcia
             </Link>
             <Link
-              to="/kontakt"
+              to={SIGNUP_LINK}
               className="inline-block bg-red-800 border-2 border-white text-white px-10 py-4 rounded-lg font-semibold hover:bg-red-900 transition-colors text-lg"
             >
               Napisz do nas

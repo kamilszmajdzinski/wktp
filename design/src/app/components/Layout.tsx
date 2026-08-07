@@ -1,6 +1,9 @@
 import { Link, Outlet, useLocation } from "react-router";
 import { Menu, X, Facebook, Instagram } from "lucide-react";
 import { useState } from "react";
+import { SOCIAL, SIGNUP_LINK } from "../social";
+import { ScrollManager } from "./ScrollManager";
+import { Logo } from "./Logo";
 
 export function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,10 +13,10 @@ export function Layout() {
     { name: "Home", href: "/" },
     { name: "O nas", href: "/o-nas" },
     { name: "Zajęcia", href: "/zajecia" },
-    { name: "Tańce Narodowe", href: "/tance-narodowe" },
-    { name: "Galeria", href: "/galeria" },
     { name: "Oferta", href: "/oferta" },
+    { name: "Tańce Narodowe", href: "/tance-narodowe" },
     { name: "Turniej", href: "/turniej-upp" },
+    { name: "Galeria", href: "/galeria" },
     { name: "Kontakt", href: "/kontakt" },
   ];
 
@@ -26,12 +29,14 @@ export function Layout() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ScrollManager />
+
       {/* Header */}
       <header className="bg-black text-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-3">
+          <div className="flex justify-between items-center py-3 gap-4">
             <Link to="/" className="flex items-center space-x-3">
-              <div className="text-2xl">💃</div>
+              <Logo className="h-20 w-20 object-contain rounded" />
               <div>
                 <h1 className="font-bold text-lg leading-tight">Wielkopolski Klub</h1>
                 <p className="text-xs text-gray-300 leading-tight">Tańców Polskich</p>
@@ -55,14 +60,22 @@ export function Layout() {
               ))}
             </nav>
 
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2"
-              aria-label="Menu"
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Right cluster: persistent signup button + mobile menu toggle */}
+            <div className="flex items-center gap-3">
+              <Link
+                to={SIGNUP_LINK}
+                className="bg-red-700 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-red-800 transition-colors whitespace-nowrap"
+              >
+                Zapisz się
+              </Link>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="lg:hidden p-2"
+                aria-label="Menu"
+              >
+                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Navigation */}
@@ -95,8 +108,8 @@ export function Layout() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
             <div className="md:col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
-                <span className="text-2xl">💃</span>
+              <div className="flex items-center space-x-3 mb-4">
+                <Logo className="h-24 w-24 object-contain rounded" />
                 <h3 className="font-bold text-lg">Wielkopolski Klub Tańców Polskich</h3>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
@@ -104,7 +117,7 @@ export function Layout() {
               </p>
               <div className="flex space-x-3 mt-6">
                 <a
-                  href="https://facebook.com/wktp"
+                  href={SOCIAL.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gray-800 p-2 rounded-lg hover:bg-red-700 transition-colors"
@@ -113,7 +126,7 @@ export function Layout() {
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://instagram.com/wktp"
+                  href={SOCIAL.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gray-800 p-2 rounded-lg hover:bg-red-700 transition-colors"
@@ -122,7 +135,7 @@ export function Layout() {
                   <Instagram className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://tiktok.com/@wktp"
+                  href={SOCIAL.tiktok}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gray-800 p-2 rounded-lg hover:bg-red-700 transition-colors"

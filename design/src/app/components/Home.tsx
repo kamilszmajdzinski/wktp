@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { Heart, Users, Calendar, GraduationCap, ArrowRight } from "lucide-react";
+import { Heart, Users, Calendar, GraduationCap, ArrowRight, Facebook, Instagram } from "lucide-react";
+import { SOCIAL, SIGNUP_LINK } from "../social";
 
 export function Home() {
   const features = [
@@ -54,7 +55,7 @@ export function Home() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                to="/zajecia"
+                to={SIGNUP_LINK}
                 className="bg-red-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-800 transition-colors shadow-lg"
               >
                 Zapisz się na zajęcia
@@ -92,6 +93,47 @@ export function Home() {
                 <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Social Media Section */}
+      <div className="py-14 bg-red-700 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">
+            Śledź nas w mediach społecznościowych
+          </h2>
+          <p className="text-red-100 mb-8">
+            Bądź na bieżąco z życiem klubu, występami i wydarzeniami.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a
+              href={SOCIAL.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-white text-red-700 px-6 py-3 rounded-lg font-semibold hover:bg-red-50 transition-colors"
+            >
+              <Facebook className="w-5 h-5" /> Facebook
+            </a>
+            <a
+              href={SOCIAL.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-white text-red-700 px-6 py-3 rounded-lg font-semibold hover:bg-red-50 transition-colors"
+            >
+              <Instagram className="w-5 h-5" /> Instagram
+            </a>
+            <a
+              href={SOCIAL.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-white text-red-700 px-6 py-3 rounded-lg font-semibold hover:bg-red-50 transition-colors"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.72a8.17 8.17 0 004.77 1.52V6.79a4.85 4.85 0 01-1-.1z" />
+              </svg>
+              TikTok
+            </a>
           </div>
         </div>
       </div>
@@ -199,7 +241,7 @@ export function Home() {
             Gotowy, by zacząć przygodę z tańcem?
           </h2>
           <p className="text-xl text-gray-300 mb-10">
-            Dołącz do naszej społeczności i odkryj piękno polskich tańców ludowych. Pierwsza lekcja próbna — bezpłatna!
+            Dołącz do naszej społeczności i odkryj piękno polskich tańców narodowych. Pierwsza lekcja próbna — bezpłatna!
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link

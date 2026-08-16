@@ -32,9 +32,9 @@ jobs:
 
       - name: Build
         run: npm run build
-        env:
-          # Serves the app from https://<owner>.github.io/<repo>/
-          VITE_BASE: /${{ github.event.repository.name }}/
+        # VITE_BASE left unset (defaults to "/"): the site is served from
+        # the custom domain root (wktp-poznan.pl) via design/public/CNAME,
+        # not from https://<owner>.github.io/<repo>/
 
       - name: Add SPA fallback (client-side routing on refresh)
         run: cp dist/index.html dist/404.html

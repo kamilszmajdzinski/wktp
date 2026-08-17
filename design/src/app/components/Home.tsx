@@ -39,7 +39,7 @@ export function Home() {
           <ImageWithFallback
             src="https://images.unsplash.com/photo-1757266601919-35d335028bfd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb2xpc2glMjBmb2xrJTIwZGFuY2UlMjBjb2xvcmZ1bHxlbnwxfHx8fDE3NzUyMjU3MTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
             alt="Polish folk dance performance"
-            className="w-full h-full object-cover object-top opacity-30"
+            className="w-full h-full object-cover object-[center_25%] opacity-30"
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">

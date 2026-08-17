@@ -18,3 +18,6 @@ Thumbs.db
 # Env
 .env
 .env.local
+
+# Raw source photos (originals live outside git; optimized copies are in design/src/imports)
+/photos/

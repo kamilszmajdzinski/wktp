@@ -2,6 +2,12 @@ import { Link } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ArrowRight } from "lucide-react";
 import { SIGNUP_LINK } from "../social";
+import dancesHero from "../../imports/photos/tance-narodowe-hero.jpg";
+import polonezPhoto from "../../imports/photos/polonez.jpg";
+import krakowiakPhoto from "../../imports/photos/krakowiak.jpg";
+import mazurPhoto from "../../imports/photos/mazur.jpg";
+import oberekPhoto from "../../imports/photos/oberek.jpg";
+import kujawiakPhoto from "../../imports/photos/kujawiak.jpg";
 
 const dances = [
   {
@@ -12,8 +18,7 @@ const dances = [
     description:
       "Taniec korowodowy o charakterze paradnym i uroczystym. Wykonywany podczas najważniejszych uroczystości państwowych, rodzinnych oraz na balach. Charakteryzuje się dostojnym krokiem i elegancką postawą.",
     cta: "Naucz się poloneza",
-    image:
-      "https://images.unsplash.com/photo-1757386491857-15ab7c25c4b3?w=800&h=600&fit=crop&auto=format",
+    image: polonezPhoto,
     color: "from-red-50 to-white",
     tag: "Taniec procesyjny",
   },
@@ -25,8 +30,7 @@ const dances = [
     description:
       "Energiczny i radosny taniec pochodzący z okolic Krakowa. Charakteryzuje się synkopowanym rytmem i strzelistym ruchem. Tancerze wykonują dynamiczne podskoki i wirowe figury. To jeden z najbardziej rozpoznawalnych polskich tańców ludowych.",
     cta: "Naucz się krakowiaka",
-    image:
-      "https://images.unsplash.com/photo-1772466910118-2c6a9ccd85ce?w=800&h=600&fit=crop&auto=format",
+    image: krakowiakPhoto,
     color: "from-gray-50 to-white",
     tag: "Taniec regionalny",
   },
@@ -38,8 +42,7 @@ const dances = [
     description:
       "Elegancki taniec szlachecki w metrum trójdzielnym, pełen dumy i powagi. Mazur był tańcem salonowym polskiej szlachty i arystokracji. Charakteryzuje się ruchem pełnym klasy i finezji.",
     cta: "Naucz się mazura",
-    image:
-      "https://images.unsplash.com/photo-1711023288483-70edc32c2694?w=800&h=600&fit=crop&auto=format",
+    image: mazurPhoto,
     color: "from-red-50 to-white",
     tag: "Taniec szlachecki",
   },
@@ -51,8 +54,7 @@ const dances = [
     description:
       "Najszybszy z polskich tańców narodowych. Charakteryzuje się dynamicznymi, wirującymi ruchami i szybkim tempem. Taniec wymaga dużej kondycji i techniki. Pary wirują w szalonym tempie, tworząc spektakularne figury.",
     cta: "Naucz się obereka",
-    image:
-      "https://images.unsplash.com/photo-1757386491173-a3933e89a075?w=800&h=600&fit=crop&auto=format",
+    image: oberekPhoto,
     color: "from-gray-50 to-white",
     tag: "Taniec wirowy",
   },
@@ -64,8 +66,7 @@ const dances = [
     description:
       "Spokojny, pełen emocji taniec o zmysłowym charakterze. W przeciwieństwie do energicznych tańców polskich, kujawiak jest subtelny i refleksyjny. Charakteryzuje się płynnymi, łagodnymi ruchami i delikatną grą w parze.",
     cta: "Naucz się kujawiaka",
-    image:
-      "https://images.unsplash.com/photo-1716486174567-f0c042d4bcf1?w=800&h=600&fit=crop&auto=format",
+    image: kujawiakPhoto,
     color: "from-red-50 to-white",
     tag: "Taniec liryczny",
   },
@@ -78,8 +79,8 @@ export function NationalDances() {
       <div className="relative h-[480px] bg-gradient-to-r from-black to-gray-900">
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1757266601919-35d335028bfd?w=1400&h=600&fit=crop&auto=format"
-            alt="Polish folk dance"
+            src={dancesHero}
+            alt="Dzieci w strojach ludowych podczas tańca narodowego"
             className="w-full h-full object-cover opacity-25"
           />
         </div>

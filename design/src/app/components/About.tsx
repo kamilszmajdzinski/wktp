@@ -2,6 +2,12 @@ import { Link } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ArrowRight } from "lucide-react";
 import { SIGNUP_LINK } from "../social";
+import aboutHero from "../../imports/photos/o-nas-hero.jpg";
+import aboutBand from "../../imports/photos/o-nas-band.jpg";
+import preview1 from "../../imports/photos/o-nas-preview-1.jpg";
+import preview2 from "../../imports/photos/o-nas-preview-2.jpg";
+import preview3 from "../../imports/photos/o-nas-preview-3.jpg";
+import preview4 from "../../imports/photos/o-nas-preview-4.jpg";
 
 export function About() {
   const instructors = [
@@ -28,8 +34,8 @@ export function About() {
       <div className="relative h-[400px] bg-gradient-to-r from-red-800 to-red-600">
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1772466910118-2c6a9ccd85ce?w=1400&h=500&fit=crop&auto=format"
-            alt="About WKTP"
+            src={aboutHero}
+            alt="Tancerki WKTP w strojach scenicznych"
             className="w-full h-full object-cover opacity-20"
           />
         </div>
@@ -49,7 +55,7 @@ export function About() {
       {/* Large Image */}
       <div className="w-full h-[500px] overflow-hidden">
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1604954055722-7f80571fbfc3?w=1400&h=600&fit=crop&auto=format"
+          src={aboutBand}
           alt="Zespół WKTP na scenie"
           className="w-full h-full object-cover"
         />
@@ -178,16 +184,11 @@ export function About() {
             <p className="text-gray-500">Zajrzyjcie do naszej galerii i zobaczcie więcej</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              "https://images.unsplash.com/photo-1757266601919-35d335028bfd?w=400&h=400&fit=crop&auto=format",
-              "https://images.unsplash.com/photo-1772466910118-2c6a9ccd85ce?w=400&h=400&fit=crop&auto=format",
-              "https://images.unsplash.com/photo-1711023288483-70edc32c2694?w=400&h=400&fit=crop&auto=format",
-              "https://images.unsplash.com/photo-1604954055722-7f80571fbfc3?w=400&h=400&fit=crop&auto=format",
-            ].map((src, i) => (
+            {[preview1, preview2, preview3, preview4].map((src, i) => (
               <div key={i} className="aspect-square rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
                 <ImageWithFallback
                   src={src}
-                  alt={`Gallery ${i + 1}`}
+                  alt={`Chwile z życia klubu WKTP — zdjęcie ${i + 1}`}
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                 />
               </div>

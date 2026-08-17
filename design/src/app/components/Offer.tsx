@@ -1,5 +1,11 @@
 import { Link } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import ofertaHero from "../../imports/photos/oferta-hero.jpg";
+import martaMichal from "../../imports/photos/marta-michal.jpg";
+import spektaklDzwoneczek from "../../imports/photos/spektakl-swiateczny-dzwoneczek.jpg";
+import spektaklRozkojarzeni from "../../imports/photos/spektakl-rozkojarzeni.jpg";
+import spektaklObietnica from "../../imports/photos/spektakl-obietnica.jpg";
+import ofertaWarsztaty from "../../imports/photos/oferta-warsztaty.jpg";
 import {
   Theater,
   Sparkles,
@@ -20,8 +26,7 @@ const spectacles = [
     duration: "45 min",
     audience: "Dzieci 3–11 lat",
     performers: "20–30 tancerzy",
-    image:
-      "https://images.unsplash.com/photo-1771884077841-9cbc59c7b094?w=800&h=600&fit=crop&auto=format",
+    image: spektaklDzwoneczek,
     highlights: [
       "Kolorowe kostiumy i dekoracje",
       "Interaktywne elementy dla dzieci",
@@ -37,8 +42,7 @@ const spectacles = [
     duration: "30 min",
     audience: "Młodzież 16+ i dorośli",
     performers: "12–20 tancerzy",
-    image:
-      "https://images.unsplash.com/photo-1761618291331-535983ae4296?w=800&h=600&fit=crop&auto=format",
+    image: spektaklRozkojarzeni,
     highlights: [
       "Nowoczesna choreografia",
       "Głęboki przekaz emocjonalny",
@@ -54,8 +58,7 @@ const spectacles = [
     duration: "40 min",
     audience: "Młodzież 12+ i dorośli",
     performers: "12–20 tancerzy",
-    image:
-      "https://images.unsplash.com/photo-1767786394008-77c66239c3a6?w=800&h=600&fit=crop&auto=format",
+    image: spektaklObietnica,
     highlights: [
       "Tańce polskie w formie salonowej",
       "Romantyczna oprawa muzyczna",
@@ -111,8 +114,8 @@ export function Offer() {
       <div className="relative h-[400px] bg-gradient-to-r from-red-800 to-red-600">
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1716486174567-f0c042d4bcf1?w=1400&h=500&fit=crop&auto=format"
-            alt="Oferta WKTP"
+            src={ofertaHero}
+            alt="Para taneczna podczas pokazu"
             className="w-full h-full object-cover opacity-20"
           />
         </div>
@@ -234,7 +237,7 @@ export function Offer() {
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="relative h-96 lg:h-auto">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1716486174567-f0c042d4bcf1?w=800&h=700&fit=crop&auto=format"
+                  src={martaMichal}
                   alt="Marta Budziak i Michał Cichocki"
                   className="w-full h-full object-cover"
                 />
@@ -392,8 +395,8 @@ export function Offer() {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-2xl h-[500px]">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1604954055722-7f80571fbfc3?w=800&h=600&fit=crop&auto=format"
-                alt="Warsztaty taneczne"
+                src={ofertaWarsztaty}
+                alt="Warsztaty taneczne — grupa uczestników"
                 className="w-full h-full object-cover"
               />
             </div>

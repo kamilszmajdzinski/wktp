@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { Clock, MapPin, Users, CheckCircle, Star, Trophy, ArrowRight, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { SIGNUP_LINK } from "../social";
 import { Logo } from "./Logo";
+import classesHero from "../../imports/photos/classes-hero.jpg";
+import classesLocation from "../../imports/photos/classes-location.jpg";
 
 // All photos dropped into src/imports/gallery/zajecia are picked up automatically.
 const zajeciaPhotos = Object.entries(
@@ -113,8 +115,8 @@ export function Classes() {
       <div className="relative h-[400px] bg-gradient-to-r from-red-800 to-red-600">
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1757266601919-35d335028bfd?w=1400&h=500&fit=crop&auto=format"
-            alt="Zajęcia taneczne"
+            src={classesHero}
+            alt="Uśmiechnięta uczestniczka zajęć tanecznych WKTP"
             className="w-full h-full object-cover opacity-20"
           />
         </div>
@@ -193,8 +195,8 @@ export function Classes() {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-2xl h-80">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1711023288483-70edc32c2694?w=800&h=500&fit=crop&auto=format"
-                alt="Sala taneczna ODK Wiktoria"
+                src={classesLocation}
+                alt="Zajęcia taneczne WKTP"
                 className="w-full h-full object-cover"
               />
             </div>

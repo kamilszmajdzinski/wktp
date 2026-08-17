@@ -1,19 +1,25 @@
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Trophy, Calendar, MapPin } from "lucide-react";
+import turniejHero from "../../imports/photos/turniej-hero.jpg";
 
-const krysztalowySiewcaGallery = [
-  { src: "https://images.unsplash.com/photo-1764874298962-ac0c84307fc0?w=700&h=500&fit=crop&auto=format", alt: "Kryształowy Siewca - ceremonia" },
-  { src: "https://images.unsplash.com/photo-1757266601919-35d335028bfd?w=700&h=500&fit=crop&auto=format", alt: "Kryształowy Siewca - uczestnicy" },
-  { src: "https://images.unsplash.com/photo-1772466910118-2c6a9ccd85ce?w=700&h=500&fit=crop&auto=format", alt: "Kryształowy Siewca - pokaz" },
-  { src: "https://images.unsplash.com/photo-1644594570296-31899872aaae?w=700&h=500&fit=crop&auto=format", alt: "Kryształowy Siewca - jury" },
-];
+// All photos dropped into these folders are picked up automatically.
+const krysztalowySiewcaGallery = Object.entries(
+  import.meta.glob("../../imports/gallery/turniej-siewca/*.{jpg,jpeg,png,JPG,JPEG,PNG}", {
+    eager: true,
+    import: "default",
+  })
+)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, src], i) => ({ src: src as string, alt: `Kryształowy Siewca — zdjęcie ${i + 1}` }));
 
-const akademickieMistrzostwaGallery = [
-  { src: "https://images.unsplash.com/photo-1656213497787-6f502a6a9109?w=700&h=500&fit=crop&auto=format", alt: "Akademickie Mistrzostwa - parkiet" },
-  { src: "https://images.unsplash.com/photo-1757386491173-a3933e89a075?w=700&h=500&fit=crop&auto=format", alt: "Akademickie Mistrzostwa - tancerze" },
-  { src: "https://images.unsplash.com/photo-1716486174567-f0c042d4bcf1?w=700&h=500&fit=crop&auto=format", alt: "Akademickie Mistrzostwa - para finałowa" },
-  { src: "https://images.unsplash.com/photo-1767786394008-77c66239c3a6?w=700&h=500&fit=crop&auto=format", alt: "Akademickie Mistrzostwa - gala" },
-];
+const akademickieMistrzostwaGallery = Object.entries(
+  import.meta.glob("../../imports/gallery/turniej-mistrzostwa/*.{jpg,jpeg,png,JPG,JPEG,PNG}", {
+    eager: true,
+    import: "default",
+  })
+)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, src], i) => ({ src: src as string, alt: `Akademickie Mistrzostwa Polski — zdjęcie ${i + 1}` }));
 
 function GallerySection({ images }: { images: { src: string; alt: string }[] }) {
   return (
@@ -44,8 +50,8 @@ export function Tournament() {
       <div className="relative h-[560px] bg-gradient-to-r from-black to-gray-900">
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1656213497787-6f502a6a9109?w=1400&h=600&fit=crop&auto=format"
-            alt="Turniej UPP"
+            src={turniejHero}
+            alt="Dzieci podczas występu na Turnieju Tańców Polskich"
             className="w-full h-full object-cover opacity-25"
           />
         </div>

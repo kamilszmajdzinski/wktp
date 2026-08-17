@@ -2,6 +2,11 @@ import { Link } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Heart, Users, Calendar, GraduationCap, ArrowRight, Facebook, Instagram } from "lucide-react";
 import { SOCIAL, SIGNUP_LINK } from "../social";
+import homeHero from "../../imports/photos/home-hero.jpg";
+import homeTurniej from "../../imports/photos/home-turniej.jpg";
+import polonezPhoto from "../../imports/photos/polonez.jpg";
+import krakowiakPhoto from "../../imports/photos/krakowiak.jpg";
+import mazurPhoto from "../../imports/photos/mazur.jpg";
 
 export function Home() {
   const features = [
@@ -37,8 +42,8 @@ export function Home() {
       <div className="relative h-[620px] bg-gradient-to-r from-black to-gray-900">
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1757266601919-35d335028bfd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb2xpc2glMjBmb2xrJTIwZGFuY2UlMjBjb2xvcmZ1bHxlbnwxfHx8fDE3NzUyMjU3MTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Polish folk dance performance"
+            src={homeHero}
+            alt="Para taneczna WKTP w czerwonej sukni na scenie"
             className="w-full h-full object-cover object-[center_25%] opacity-30"
           />
         </div>
@@ -146,21 +151,21 @@ export function Home() {
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-2xl overflow-hidden shadow-xl h-52 row-span-2">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1757386491857-15ab7c25c4b3?w=600&h=700&fit=crop&auto=format"
+                  src={polonezPhoto}
                   alt="Polonez"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-xl h-24">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1772466910118-2c6a9ccd85ce?w=400&h=250&fit=crop&auto=format"
+                  src={krakowiakPhoto}
                   alt="Krakowiak"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-xl h-24">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1757386491173-a3933e89a075?w=400&h=250&fit=crop&auto=format"
+                  src={mazurPhoto}
                   alt="Mazur"
                   className="w-full h-full object-cover"
                 />
@@ -201,8 +206,8 @@ export function Home() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 <div className="relative h-64 lg:h-auto">
                   <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1764874298962-ac0c84307fc0?w=700&h=500&fit=crop&auto=format"
-                    alt="Turniej UPP 2026"
+                    src={homeTurniej}
+                    alt="Uczestnicy Turnieju Tańców Polskich na sali"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent lg:bg-gradient-to-r" />

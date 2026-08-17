@@ -4,6 +4,27 @@ import { Facebook, Instagram, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { SOCIAL, SIGNUP_LINK } from "../social";
 import { Logo } from "./Logo";
+import galleryHero from "../../imports/photos/galeria-hero.jpg";
+
+// All photos dropped into src/imports/gallery/<category> are picked up automatically.
+function loadCategoryImages(globPath: string, categoryName: string) {
+  const modules = import.meta.glob("../../imports/gallery/*/*.{jpg,jpeg,png,JPG,JPEG,PNG}", {
+    eager: true,
+    import: "default",
+  });
+  return Object.entries(modules)
+    .filter(([path]) => path.includes(`/gallery/${globPath}/`))
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([, src], i) => ({ src: src as string, alt: `${categoryName} — zdjęcie ${i + 1}` }));
+}
+
+function pluralizeZdjecia(n: number) {
+  if (n === 1) return "zdjęcie";
+  const lastDigit = n % 10;
+  const lastTwo = n % 100;
+  if (lastDigit >= 2 && lastDigit <= 4 && !(lastTwo >= 12 && lastTwo <= 14)) return "zdjęcia";
+  return "zdjęć";
+}
 
 const categories = [
   {
@@ -11,48 +32,28 @@ const categories = [
     name: "Turnieje tańca",
     emoji: "🏆",
     description: "Zdjęcia z Ogólnopolskiego Turnieju Tańców Polskich „O Kryształowego Siewcę” i Akademickich Mistrzostw Polski",
-    images: [
-      { src: "https://images.unsplash.com/photo-1764874298962-ac0c84307fc0?w=600&h=450&fit=crop&auto=format", alt: "Turniej UPP - ceremonia wręczenia nagród" },
-      { src: "https://images.unsplash.com/photo-1656213497787-6f502a6a9109?w=600&h=450&fit=crop&auto=format", alt: "Turniej UPP - uczestnicy" },
-      { src: "https://images.unsplash.com/photo-1644594570296-31899872aaae?w=600&h=450&fit=crop&auto=format", alt: "Turniej - jury" },
-      { src: "https://images.unsplash.com/photo-1757386491857-15ab7c25c4b3?w=600&h=450&fit=crop&auto=format", alt: "Turniej - polonez" },
-    ],
+    images: loadCategoryImages("turnieje", "Turniej tańca"),
   },
   {
     id: "spektakle",
     name: "Spektakle",
     emoji: "🎭",
     description: "Autorskie spektakle taneczne: Świąteczny Dzwoneczek, Rozkojarzeni, Obietnica",
-    images: [
-      { src: "https://images.unsplash.com/photo-1771884077841-9cbc59c7b094?w=600&h=450&fit=crop&auto=format", alt: "Świąteczny Dzwoneczek" },
-      { src: "https://images.unsplash.com/photo-1761618291331-535983ae4296?w=600&h=450&fit=crop&auto=format", alt: "Spektakl Rozkojarzeni" },
-      { src: "https://images.unsplash.com/photo-1767786394008-77c66239c3a6?w=600&h=450&fit=crop&auto=format", alt: "Spektakl Obietnica" },
-      { src: "https://images.unsplash.com/photo-1716486174567-f0c042d4bcf1?w=600&h=450&fit=crop&auto=format", alt: "Pokaz taneczny" },
-    ],
+    images: loadCategoryImages("spektakle", "Spektakl"),
   },
   {
     id: "pokazy",
     name: "Pokazy i występy",
     emoji: "💃",
     description: "Pokazy taneczne na eventach, festiwalach i uroczystościach",
-    images: [
-      { src: "https://images.unsplash.com/photo-1757266601919-35d335028bfd?w=600&h=450&fit=crop&auto=format", alt: "Pokaz folklorystyczny" },
-      { src: "https://images.unsplash.com/photo-1772466910118-2c6a9ccd85ce?w=600&h=450&fit=crop&auto=format", alt: "Pokaz na festiwalu" },
-      { src: "https://images.unsplash.com/photo-1757386491173-a3933e89a075?w=600&h=450&fit=crop&auto=format", alt: "Pokaz uroczysty" },
-      { src: "https://images.unsplash.com/photo-1604954055722-7f80571fbfc3?w=600&h=450&fit=crop&auto=format", alt: "Pokaz taneczny 2" },
-    ],
+    images: loadCategoryImages("pokazy", "Pokaz"),
   },
   {
     id: "warsztaty",
     name: "Warsztaty tańca",
     emoji: "🎓",
     description: "Warsztaty taneczne dla firm, szkół i grup zorganizowanych",
-    images: [
-      { src: "https://images.unsplash.com/photo-1711023288483-70edc32c2694?w=600&h=450&fit=crop&auto=format", alt: "Warsztaty w sali" },
-      { src: "https://images.unsplash.com/photo-1604954055722-7f80571fbfc3?w=600&h=450&fit=crop&auto=format", alt: "Warsztaty grupowe" },
-      { src: "https://images.unsplash.com/photo-1772466910118-2c6a9ccd85ce?w=600&h=450&fit=crop&auto=format", alt: "Warsztaty dla dzieci" },
-      { src: "https://images.unsplash.com/photo-1757266601919-35d335028bfd?w=600&h=450&fit=crop&auto=format", alt: "Warsztaty tematyczne" },
-    ],
+    images: loadCategoryImages("warsztaty", "Warsztaty"),
   },
 ];
 
@@ -76,8 +77,8 @@ export function Gallery() {
       <div className="relative h-[400px] bg-gradient-to-r from-red-800 to-red-600">
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1757266601919-35d335028bfd?w=1400&h=500&fit=crop&auto=format"
-            alt="Galeria WKTP"
+            src={galleryHero}
+            alt="Tancerze WKTP w strojach scenicznych"
             className="w-full h-full object-cover opacity-20"
           />
         </div>
@@ -220,7 +221,7 @@ export function Gallery() {
                   {cat.name}
                 </h3>
                 <p className="text-gray-500 text-sm mt-1">
-                  {cat.images.length} zdjęcia
+                  {cat.images.length} {pluralizeZdjecia(cat.images.length)}
                 </p>
               </button>
             ))}

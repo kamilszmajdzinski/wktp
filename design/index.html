@@ -1,22 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Website for Dance Club</title>
-      <meta name="description" content="Connect with the Wielkopolski Klub Tańców Polskich to explore dance classes, events, and community activities, enhancing your cultural experience." />
-      <meta name="robots" content="noindex, nofollow" />
-      <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
-      
-    </head>
+    <title>Wielkopolski Klub Tańców Polskich — Nauka Tańców Narodowych w Poznaniu</title>
+    <meta name="description" content="Naucz się poloneza, krakowiaka, mazura, oberka i kujawiaka. Zajęcia taneczne dla dzieci, młodzieży i dorosłych w Poznaniu — dołącz do WKTP." />
+    <link rel="canonical" href="https://wktp-poznan.pl/" />
 
-    <body>
-      
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-      
-    </body>
-  </html>
-  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#DC2626" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Wielkopolski Klub Tańców Polskich" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:title" content="Wielkopolski Klub Tańców Polskich — Nauka Tańców Narodowych w Poznaniu" />
+    <meta property="og:description" content="Naucz się poloneza, krakowiaka, mazura, oberka i kujawiaka. Zajęcia taneczne dla dzieci, młodzieży i dorosłych w Poznaniu — dołącz do WKTP." />
+    <meta property="og:url" content="https://wktp-poznan.pl/" />
+    <meta property="og:image" content="https://wktp-poznan.pl/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Wielkopolski Klub Tańców Polskich — Nauka Tańców Narodowych w Poznaniu" />
+    <meta name="twitter:description" content="Naucz się poloneza, krakowiaka, mazura, oberka i kujawiaka. Zajęcia taneczne dla dzieci, młodzieży i dorosłych w Poznaniu — dołącz do WKTP." />
+    <meta name="twitter:image" content="https://wktp-poznan.pl/og-image.jpg" />
+
+    <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "DanceGroup"],
+      "name": "Wielkopolski Klub Tańców Polskich",
+      "url": "https://wktp-poznan.pl/",
+      "logo": "https://wktp-poznan.pl/icon-512.png",
+      "image": "https://wktp-poznan.pl/og-image.jpg",
+      "telephone": "+48785899858",
+      "email": "wktp@up.poznan.pl",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "os. Zwycięstwa 125",
+        "addressLocality": "Poznań",
+        "postalCode": "61-652",
+        "addressCountry": "PL"
+      },
+      "sameAs": [
+        "https://www.facebook.com/WielkopolskiKTP/",
+        "https://www.instagram.com/wktp_poznan/",
+        "https://www.tiktok.com/@wktp_poznan"
+      ]
+    }
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

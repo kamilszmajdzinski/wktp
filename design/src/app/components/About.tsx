@@ -38,7 +38,7 @@ export function About() {
             <p className="text-red-200 text-sm font-semibold uppercase tracking-widest mb-4">
               Poznaj nas
             </p>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">O Nas</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">O nas</h1>
             <p className="text-xl text-red-100">
               Wielkopolski Klub Tańców Polskich — miejsce, gdzie sztuka spotyka się z pasją.
             </p>

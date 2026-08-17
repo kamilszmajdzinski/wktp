@@ -3,6 +3,7 @@ import { Menu, X, Facebook, Instagram } from "lucide-react";
 import { useState } from "react";
 import { SOCIAL, SIGNUP_LINK } from "../social";
 import { ScrollManager } from "./ScrollManager";
+import { Seo } from "./Seo";
 import { Logo } from "./Logo";
 
 export function Layout() {
@@ -30,6 +31,7 @@ export function Layout() {
   return (
     <div className="min-h-screen bg-white">
       <ScrollManager />
+      <Seo />
 
       {/* Header */}
       <header className="bg-black text-white shadow-lg sticky top-0 z-50">

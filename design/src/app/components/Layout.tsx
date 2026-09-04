@@ -40,8 +40,12 @@ export function Layout() {
             <Link to="/" className="flex items-center space-x-3">
               <Logo className="h-20 w-20 object-contain rounded" />
               <div>
-                <h1 className="font-bold text-lg leading-tight">Wielkopolski Klub</h1>
-                <p className="text-xs text-gray-300 leading-tight">Tańców Polskich</p>
+                <h1 className="font-bold text-lg leading-tight">
+                  Wielkopolski Klub
+                </h1>
+                <p className="text-xs text-gray-300 leading-tight">
+                  Tańców Polskich
+                </p>
               </div>
             </Link>
 
@@ -89,7 +93,9 @@ export function Layout() {
                   to={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block py-2 px-4 rounded transition-colors hover:bg-gray-800 text-sm ${
-                    isActive(item.href) ? "bg-gray-700 text-red-400" : "text-gray-200"
+                    isActive(item.href)
+                      ? "bg-gray-700 text-red-400"
+                      : "text-gray-200"
                   }`}
                 >
                   {item.name}
@@ -112,10 +118,14 @@ export function Layout() {
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
                 <Logo className="h-24 w-24 object-contain rounded" />
-                <h3 className="font-bold text-lg">Wielkopolski Klub Tańców Polskich</h3>
+                <h3 className="font-bold text-lg">
+                  Wielkopolski Klub Tańców Polskich
+                </h3>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-                Odkryj z nami piękno tańców polskich. Kultywujemy tradycje tańców narodowych, zapraszając dzieci, młodzież i dorosłych do wspólnej pasji.
+                Odkryj z nami piękno tańców polskich. Kultywujemy tradycje
+                tańców narodowych, zapraszając dzieci, młodzież i dorosłych do
+                wspólnej pasji.
               </p>
               <div className="flex space-x-3 mt-6">
                 <a
@@ -143,7 +153,11 @@ export function Layout() {
                   className="bg-gray-800 p-2 rounded-lg hover:bg-red-700 transition-colors"
                   aria-label="TikTok"
                 >
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.72a8.17 8.17 0 004.77 1.52V6.79a4.85 4.85 0 01-1-.1z" />
                   </svg>
                 </a>
@@ -167,14 +181,24 @@ export function Layout() {
             <div>
               <h4 className="font-semibold mb-4 text-white">Kontakt</h4>
               <div className="space-y-2 text-gray-400 text-sm">
-                <p>Osiedlowy Dom Kultury „Wiktoria”<br />os. Zwycięstwa 125, 61-652 Poznań</p>
+                <p>
+                  Osiedlowy Dom Kultury „Wiktoria”
+                  <br />
+                  os. Zwycięstwa 125, 61-652 Poznań
+                </p>
                 <p className="mt-3">
-                  <a href="tel:+48785899858" className="hover:text-red-400 transition-colors">
-                    +48 785 899 858
+                  <a
+                    href="tel:+48785457340"
+                    className="hover:text-red-400 transition-colors"
+                  >
+                    +48 785 457 340
                   </a>
                 </p>
                 <p>
-                  <a href="mailto:wktp@up.poznan.pl" className="hover:text-red-400 transition-colors">
+                  <a
+                    href="mailto:wktp@up.poznan.pl"
+                    className="hover:text-red-400 transition-colors"
+                  >
                     wktp@up.poznan.pl
                   </a>
                 </p>
@@ -182,7 +206,8 @@ export function Layout() {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
-            © 2026 Wielkopolski Klub Tańców Polskich. Wszelkie prawa zastrzeżone.
+            © 2026 Wielkopolski Klub Tańców Polskich. Wszelkie prawa
+            zastrzeżone.
           </div>
         </div>
       </footer>

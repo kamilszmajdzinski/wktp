@@ -34,7 +34,7 @@ export function Contact() {
       formData.message,
     ].join("\n");
     window.location.href = `mailto:${CLUB_EMAIL}?subject=${encodeURIComponent(
-      subject
+      subject,
     )}&body=${encodeURIComponent(body)}`;
   };
 
@@ -43,14 +43,16 @@ export function Contact() {
     const subject = "Prośba o kontakt telefoniczny (strona WWW)";
     const body = `Proszę o kontakt telefoniczny pod numerem: ${callbackPhone}`;
     window.location.href = `mailto:${CLUB_EMAIL}?subject=${encodeURIComponent(
-      subject
+      subject,
     )}&body=${encodeURIComponent(body)}`;
     setCallbackSent(true);
     setCallbackPhone("");
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -78,9 +80,13 @@ export function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="text-4xl mb-4">📞</div>
-              <h2 className="text-3xl font-bold mb-4">Chcesz porozmawiać? Oddzwonimy do Ciebie.</h2>
+              <h2 className="text-3xl font-bold mb-4">
+                Chcesz porozmawiać? Oddzwonimy do Ciebie.
+              </h2>
               <p className="text-gray-300 text-lg">
-                Zostaw swój numer telefonu, a skontaktujemy się z Tobą, odpowiemy na pytania, pomożemy wybrać odpowiednie zajęcia dla Ciebie lub Twojego dziecka.
+                Zostaw swój numer telefonu, a skontaktujemy się z Tobą,
+                odpowiemy na pytania, pomożemy wybrać odpowiednie zajęcia dla
+                Ciebie lub Twojego dziecka.
               </p>
             </div>
             <div>
@@ -88,10 +94,15 @@ export function Contact() {
                 <div className="bg-green-800/40 border border-green-600 rounded-2xl p-8 text-center">
                   <div className="text-4xl mb-3">✅</div>
                   <h3 className="text-xl font-bold mb-2">Dziękujemy!</h3>
-                  <p className="text-green-200">Oddzwonimy do Ciebie wkrótce.</p>
+                  <p className="text-green-200">
+                    Oddzwonimy do Ciebie wkrótce.
+                  </p>
                 </div>
               ) : (
-                <form onSubmit={handleCallbackSubmit} className="bg-white/10 backdrop-blur rounded-2xl p-8">
+                <form
+                  onSubmit={handleCallbackSubmit}
+                  className="bg-white/10 backdrop-blur rounded-2xl p-8"
+                >
                   <label className="block text-sm font-semibold mb-2 text-gray-200">
                     📞 Twój numer telefonu
                   </label>
@@ -129,7 +140,10 @@ export function Contact() {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Imię i Nazwisko *
                     </label>
                     <input
@@ -144,7 +158,10 @@ export function Contact() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Telefon
                     </label>
                     <input
@@ -159,7 +176,10 @@ export function Contact() {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
                     Email *
                   </label>
                   <input
@@ -174,7 +194,10 @@ export function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
                     Temat
                   </label>
                   <select
@@ -193,7 +216,10 @@ export function Contact() {
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
                     Wiadomość *
                   </label>
                   <textarea
@@ -228,13 +254,16 @@ export function Contact() {
                   {
                     icon: MapPin,
                     title: "Adres",
-                    lines: ["Osiedlowy Dom Kultury „Wiktoria”", "os. Zwycięstwa 125, 61-652 Poznań"],
+                    lines: [
+                      "Osiedlowy Dom Kultury „Wiktoria”",
+                      "os. Zwycięstwa 125, 61-652 Poznań",
+                    ],
                   },
                   {
                     icon: Phone,
                     title: "Telefon",
-                    lines: ["+48 785 899 858"],
-                    href: "tel:+48785899858",
+                    lines: ["+48 785 457 340"],
+                    href: "tel:+48785457340",
                   },
                   {
                     icon: Mail,
@@ -245,10 +274,16 @@ export function Contact() {
                   {
                     icon: MapPin,
                     title: "II sala",
-                    lines: ["Zespół Szkolno-Przedszkolny nr 12", "os. Zwycięstwa 101, 61-652 Poznań"],
+                    lines: [
+                      "Zespół Szkolno-Przedszkolny nr 12",
+                      "os. Zwycięstwa 101, 61-652 Poznań",
+                    ],
                   },
                 ].map(({ icon: Icon, title, lines, href }) => (
-                  <div key={title} className="flex items-start gap-4 p-5 bg-gray-50 rounded-2xl">
+                  <div
+                    key={title}
+                    className="flex items-start gap-4 p-5 bg-gray-50 rounded-2xl"
+                  >
                     <div className="bg-red-100 p-3 rounded-xl flex-shrink-0">
                       <Icon className="w-6 h-6 text-red-600" />
                     </div>
@@ -257,7 +292,10 @@ export function Contact() {
                       {lines.map((line, i) => (
                         <p key={i} className="text-gray-600 text-sm">
                           {href && i === 0 ? (
-                            <a href={href} className="hover:text-red-600 transition-colors">
+                            <a
+                              href={href}
+                              className="hover:text-red-600 transition-colors"
+                            >
                               {line}
                             </a>
                           ) : (
@@ -293,7 +331,9 @@ export function Contact() {
               </div>
 
               {/* Social Media */}
-              <h3 className="font-bold mb-4">Śledź nas w mediach społecznościowych</h3>
+              <h3 className="font-bold mb-4">
+                Śledź nas w mediach społecznościowych
+              </h3>
               <div className="flex gap-3">
                 <a
                   href={SOCIAL.facebook}
@@ -317,7 +357,11 @@ export function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-black text-white px-5 py-2.5 rounded-xl hover:bg-gray-800 transition-colors font-semibold text-sm"
                 >
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.72a8.17 8.17 0 004.77 1.52V6.79a4.85 4.85 0 01-1-.1z" />
                   </svg>
                   TikTok
@@ -333,7 +377,9 @@ export function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Jak do nas trafić?</h2>
-            <p className="text-gray-500">Działamy w dwóch lokalizacjach w Poznaniu</p>
+            <p className="text-gray-500">
+              Działamy w dwóch lokalizacjach w Poznaniu
+            </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Map 1: ODK Wiktoria */}
@@ -342,14 +388,20 @@ export function Contact() {
                 <div className="flex items-center gap-3">
                   <MapPin className="w-6 h-6" />
                   <div>
-                    <h3 className="font-bold text-lg">Osiedlowy Dom Kultury „Wiktoria”</h3>
-                    <p className="text-red-100 text-sm">os. Zwycięstwa 125, 61-652 Poznań</p>
+                    <h3 className="font-bold text-lg">
+                      Osiedlowy Dom Kultury „Wiktoria”
+                    </h3>
+                    <p className="text-red-100 text-sm">
+                      os. Zwycięstwa 125, 61-652 Poznań
+                    </p>
                   </div>
                 </div>
               </div>
               <div className="h-72 bg-gray-200 relative overflow-hidden">
                 <iframe
-                  src={mapEmbed("Osiedlowy Dom Kultury Wiktoria, os. Zwycięstwa 125, 61-652 Poznań")}
+                  src={mapEmbed(
+                    "Osiedlowy Dom Kultury Wiktoria, os. Zwycięstwa 125, 61-652 Poznań",
+                  )}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -361,7 +413,8 @@ export function Contact() {
               </div>
               <div className="p-5">
                 <p className="text-gray-600 text-sm">
-                  Siedziba klubu — tu odbywa się większość zajęć oraz próby grup dorosłych i reprezentacyjnej.
+                  Siedziba klubu — tu odbywa się większość zajęć oraz próby grup
+                  dorosłych i reprezentacyjnej.
                 </p>
               </div>
             </div>
@@ -372,14 +425,20 @@ export function Contact() {
                 <div className="flex items-center gap-3">
                   <MapPin className="w-6 h-6" />
                   <div>
-                    <h3 className="font-bold text-lg">Zespół Szkolno-Przedszkolny nr 12</h3>
-                    <p className="text-gray-300 text-sm">os. Zwycięstwa 101, 61-652 Poznań</p>
+                    <h3 className="font-bold text-lg">
+                      Zespół Szkolno-Przedszkolny nr 12
+                    </h3>
+                    <p className="text-gray-300 text-sm">
+                      os. Zwycięstwa 101, 61-652 Poznań
+                    </p>
                   </div>
                 </div>
               </div>
               <div className="h-72 bg-gray-200 relative overflow-hidden">
                 <iframe
-                  src={mapEmbed("Zespół Szkolno-Przedszkolny nr 12, os. Zwycięstwa 101, 61-652 Poznań")}
+                  src={mapEmbed(
+                    "Zespół Szkolno-Przedszkolny nr 12, os. Zwycięstwa 101, 61-652 Poznań",
+                  )}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

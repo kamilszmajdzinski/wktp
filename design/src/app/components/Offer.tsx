@@ -124,9 +124,12 @@ export function Offer() {
             <p className="text-red-200 text-sm font-semibold uppercase tracking-widest mb-4">
               Dla firm i organizatorów
             </p>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Oferta Biznesowa</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              Oferta Biznesowa
+            </h1>
             <p className="text-xl text-red-100">
-              Profesjonalne spektakle, pokazy taneczne i warsztaty — robimy Twoje wydarzenie niezapomnianym.
+              Profesjonalne spektakle, pokazy taneczne i warsztaty — robimy
+              Twoje wydarzenie niezapomnianym.
             </p>
           </div>
         </div>
@@ -137,10 +140,15 @@ export function Offer() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6">Zapraszamy do współpracy!</h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-4">
-            Wielkopolski Klub Tańców Polskich oferuje szeroki zakres usług artystycznych i edukacyjnych. Nasze spektakle, pokazy i warsztaty cieszą się ogromnym uznaniem wśród różnorodnej publiczności — od korporacji po instytucje kulturalne.
+            Wielkopolski Klub Tańców Polskich oferuje szeroki zakres usług
+            artystycznych i edukacyjnych. Nasze spektakle, pokazy i warsztaty
+            cieszą się ogromnym uznaniem wśród różnorodnej publiczności — od
+            korporacji po instytucje kulturalne.
           </p>
           <p className="text-gray-600 text-lg leading-relaxed">
-            Każde wydarzenie przygotowujemy z najwyższą starannością, dbając o profesjonalizm i unikalny charakter występu dostosowany do Państwa oczekiwań.
+            Każde wydarzenie przygotowujemy z najwyższą starannością, dbając o
+            profesjonalizm i unikalny charakter występu dostosowany do Państwa
+            oczekiwań.
           </p>
         </div>
       </div>
@@ -154,7 +162,8 @@ export function Offer() {
             </p>
             <h2 className="text-3xl font-bold mb-4">Nasze Spektakle</h2>
             <p className="text-gray-500 max-w-2xl mx-auto">
-              Autorskie przedstawienia taneczne z profesjonalną choreografią, scenografią i oprawą muzyczną.
+              Autorskie przedstawienia taneczne z profesjonalną choreografią,
+              scenografią i oprawą muzyczną.
             </p>
           </div>
 
@@ -181,8 +190,12 @@ export function Offer() {
                     Spektakl
                   </div>
                   <h3 className="text-4xl font-bold mb-3">{spectacle.title}</h3>
-                  <p className="text-xl text-red-600 mb-6">{spectacle.subtitle}</p>
-                  <p className="text-gray-700 mb-8 leading-relaxed text-lg">{spectacle.description}</p>
+                  <p className="text-xl text-red-600 mb-6">
+                    {spectacle.subtitle}
+                  </p>
+                  <p className="text-gray-700 mb-8 leading-relaxed text-lg">
+                    {spectacle.description}
+                  </p>
 
                   <div className="grid grid-cols-3 gap-4 mb-8">
                     {[
@@ -190,9 +203,16 @@ export function Offer() {
                       { label: "Publiczność", value: spectacle.audience },
                       { label: "Obsada", value: spectacle.performers },
                     ].map(({ label, value }) => (
-                      <div key={label} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center">
-                        <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">{label}</p>
-                        <p className="font-bold text-gray-900 text-sm">{value}</p>
+                      <div
+                        key={label}
+                        className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"
+                      >
+                        <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">
+                          {label}
+                        </p>
+                        <p className="font-bold text-gray-900 text-sm">
+                          {value}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -227,9 +247,12 @@ export function Offer() {
               <Star className="w-4 h-4" />
               Oferta Specjalna
             </div>
-            <h2 className="text-4xl font-bold mb-4">Profesjonalne Pokazy Taneczne</h2>
+            <h2 className="text-4xl font-bold mb-4">
+              Profesjonalne Pokazy Taneczne
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Marta Budziak & Michał Cichocki — Mistrzowie Tańca w Tańcach Polskich
+              Marta Budziak & Michał Cichocki — Mistrzowie Tańca w Tańcach
+              Polskich
             </p>
           </div>
 
@@ -243,7 +266,9 @@ export function Offer() {
                 />
                 <div className="absolute top-4 right-4 bg-red-700 text-white px-4 py-2 rounded-xl shadow-lg flex items-center gap-2">
                   <Award className="w-5 h-5" />
-                  <span className="font-semibold text-sm">Mistrzowie Polski</span>
+                  <span className="font-semibold text-sm">
+                    Mistrzowie Polski
+                  </span>
                 </div>
               </div>
 
@@ -254,9 +279,27 @@ export function Offer() {
 
                 <div className="space-y-4 mb-10">
                   {[
-                    { icon: Award, color: "bg-red-100", iconColor: "text-red-600", title: "Mistrzowie Polski", sub: "Tytuł Mistrzów Tańców Polskich" },
-                    { icon: Star, color: "bg-amber-100", iconColor: "text-amber-600", title: "Klasa S13", sub: "Najwyższa klasa taneczna w tańcach polskich" },
-                    { icon: Star, color: "bg-yellow-100", iconColor: "text-yellow-600", title: "Para Roku", sub: "Wielokrotnie nagradzani tym prestiżowym tytułem" },
+                    {
+                      icon: Award,
+                      color: "bg-red-100",
+                      iconColor: "text-red-600",
+                      title: "Mistrzowie Polski",
+                      sub: "Tytuł Mistrzów Tańców Polskich",
+                    },
+                    {
+                      icon: Star,
+                      color: "bg-amber-100",
+                      iconColor: "text-amber-600",
+                      title: "Klasa S13",
+                      sub: "Najwyższa klasa taneczna w tańcach polskich",
+                    },
+                    {
+                      icon: Star,
+                      color: "bg-yellow-100",
+                      iconColor: "text-yellow-600",
+                      title: "Para Roku",
+                      sub: "Wielokrotnie nagradzani tym prestiżowym tytułem",
+                    },
                   ].map(({ icon: Icon, color, iconColor, title, sub }) => (
                     <div key={title} className="flex items-center gap-4">
                       <div className={`${color} p-3 rounded-xl`}>
@@ -271,7 +314,9 @@ export function Offer() {
                 </div>
 
                 <p className="text-gray-700 mb-8 text-lg leading-relaxed">
-                  Zapraszamy do skorzystania z wyjątkowej oferty profesjonalnych pokazów tanecznych. Marta i Michał zaprezentują spektakularne układy dostosowane do charakteru Państwa wydarzenia.
+                  Zapraszamy do skorzystania z wyjątkowej oferty profesjonalnych
+                  pokazów tanecznych. Marta i Michał zaprezentują spektakularne
+                  układy dostosowane do charakteru Państwa wydarzenia.
                 </p>
 
                 <div className="mb-8">
@@ -296,9 +341,21 @@ export function Offer() {
                 <div className="mb-8">
                   <h4 className="font-bold text-lg mb-4">Idealne na:</h4>
                   <div className="grid grid-cols-2 gap-3">
-                    {["Bale i studniówki", "Wesela", "Eventy firmowe", "Festiwale", "Uroczystości miejskie", "Wydarzenia specjalne"].map((item) => (
-                      <div key={item} className="bg-gray-50 px-4 py-3 rounded-xl">
-                        <p className="text-sm font-semibold text-gray-900">{item}</p>
+                    {[
+                      "Bale i studniówki",
+                      "Wesela",
+                      "Eventy firmowe",
+                      "Festiwale",
+                      "Uroczystości miejskie",
+                      "Wydarzenia specjalne",
+                    ].map((item) => (
+                      <div
+                        key={item}
+                        className="bg-gray-50 px-4 py-3 rounded-xl"
+                      >
+                        <p className="text-sm font-semibold text-gray-900">
+                          {item}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -306,7 +363,10 @@ export function Offer() {
 
                 <div className="bg-red-50 border-l-4 border-red-600 p-5 rounded-r-xl">
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    <strong>Indywidualne podejście:</strong> Repertuar jest w pełni dostosowywany do potrzeb wydarzenia, typu muzyki i oczekiwań organizatorów. Możliwość konsultacji i doboru układów tanecznych.
+                    <strong>Indywidualne podejście:</strong> Repertuar jest w
+                    pełni dostosowywany do potrzeb wydarzenia, typu muzyki i
+                    oczekiwań organizatorów. Możliwość konsultacji i doboru
+                    układów tanecznych.
                   </p>
                 </div>
               </div>
@@ -344,7 +404,9 @@ export function Offer() {
                   <service.icon className="w-7 h-7 text-red-600" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {service.description}
+                </p>
                 <ul className="space-y-3">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
@@ -369,7 +431,10 @@ export function Offer() {
               </p>
               <h2 className="text-3xl font-bold mb-6">Warsztaty Taneczne</h2>
               <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-                Nasze warsztaty to doskonała forma integracji, rozwijania kreatywności i poznawania polskiej kultury. Dostosowujemy program do wieku i poziomu uczestników oraz charakteru wydarzenia.
+                Nasze warsztaty to doskonała forma integracji, rozwijania
+                kreatywności i poznawania polskiej kultury. Dostosowujemy
+                program do wieku i poziomu uczestników oraz charakteru
+                wydarzenia.
               </p>
               <div className="space-y-5">
                 {[
@@ -386,9 +451,14 @@ export function Offer() {
                     desc: "Specjalistyczne warsztaty poświęcone konkretnym tańcom lub kształtowaniu postawy tanecznej w celu rozwoju techniki tańca.",
                   },
                 ].map((item) => (
-                  <div key={item.title} className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                  <div
+                    key={item.title}
+                    className="bg-white p-5 rounded-xl shadow-sm border border-gray-100"
+                  >
                     <h4 className="font-bold mb-2">{item.title}</h4>
-                    <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -412,10 +482,26 @@ export function Offer() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { icon: Calendar, title: "10+ lat doświadczenia", sub: "Ponad dekada występów i nauczania poparta osiągnięciami rangi ogólnopolskiej" },
-              { icon: Users, title: "Profesjonalna kadra", sub: "Doświadczeni instruktorzy i choreografowie" },
-              { icon: Sparkles, title: "Indywidualne podejście", sub: "Dostosowujemy program do Twoich potrzeb" },
-              { icon: Theater, title: "Pełna oprawa", sub: "Kostiumy, scenografia, muzyka" },
+              {
+                icon: Calendar,
+                title: "10+ lat doświadczenia",
+                sub: "Ponad dekada występów i nauczania poparta osiągnięciami rangi ogólnopolskiej",
+              },
+              {
+                icon: Users,
+                title: "Profesjonalna kadra",
+                sub: "Doświadczeni instruktorzy i choreografowie",
+              },
+              {
+                icon: Sparkles,
+                title: "Indywidualne podejście",
+                sub: "Dostosowujemy program do Twoich potrzeb",
+              },
+              {
+                icon: Theater,
+                title: "Pełna oprawa",
+                sub: "Kostiumy, scenografia, muzyka",
+              },
             ].map(({ icon: Icon, title, sub }) => (
               <div key={title} className="text-center">
                 <div className="bg-red-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -432,9 +518,12 @@ export function Offer() {
       {/* CTA Section */}
       <div className="py-20 bg-red-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Zainteresowany naszą ofertą?</h2>
+          <h2 className="text-4xl font-bold mb-6">
+            Zainteresowany naszą ofertą?
+          </h2>
           <p className="text-xl text-red-100 mb-10">
-            Skontaktuj się z nami, aby omówić szczegóły i otrzymać indywidualną wycenę dopasowaną do Twojego wydarzenia.
+            Skontaktuj się z nami, aby omówić szczegóły i otrzymać indywidualną
+            wycenę dopasowaną do Twojego wydarzenia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -444,10 +533,10 @@ export function Offer() {
               Skontaktuj się <ArrowRight className="w-5 h-5" />
             </Link>
             <a
-              href="tel:+48785899858"
+              href="tel:+48785457340"
               className="inline-flex items-center justify-center gap-2 bg-red-800 border-2 border-white text-white px-10 py-4 rounded-lg font-semibold hover:bg-red-900 transition-colors text-lg"
             >
-              Zadzwoń: +48 785 899 858
+              Zadzwoń: +48 785 457 340
             </a>
           </div>
         </div>

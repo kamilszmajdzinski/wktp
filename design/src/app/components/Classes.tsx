@@ -1,7 +1,18 @@
 import { Link } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useState, useEffect } from "react";
-import { Clock, MapPin, Users, CheckCircle, Star, Trophy, ArrowRight, X, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Clock,
+  MapPin,
+  Users,
+  CheckCircle,
+  Star,
+  Trophy,
+  ArrowRight,
+  X,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { SIGNUP_LINK } from "../social";
 import { Logo } from "./Logo";
 import classesHero from "../../imports/photos/classes-hero.jpg";
@@ -9,10 +20,13 @@ import classesLocation from "../../imports/photos/classes-location.jpg";
 
 // All photos dropped into src/imports/gallery/zajecia are picked up automatically.
 const zajeciaPhotos = Object.entries(
-  import.meta.glob("../../imports/gallery/zajecia/*.{jpg,jpeg,png,JPG,JPEG,PNG}", {
-    eager: true,
-    import: "default",
-  })
+  import.meta.glob(
+    "../../imports/gallery/zajecia/*.{jpg,jpeg,png,JPG,JPEG,PNG}",
+    {
+      eager: true,
+      import: "default",
+    },
+  ),
 )
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, src]) => src as string);
@@ -88,7 +102,9 @@ export function Classes() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const showPrev = () =>
-    setLightboxIndex((i) => (i === null ? i : (i - 1 + zajeciaPhotos.length) % zajeciaPhotos.length));
+    setLightboxIndex((i) =>
+      i === null ? i : (i - 1 + zajeciaPhotos.length) % zajeciaPhotos.length,
+    );
   const showNext = () =>
     setLightboxIndex((i) => (i === null ? i : (i + 1) % zajeciaPhotos.length));
 
@@ -127,7 +143,8 @@ export function Classes() {
             </p>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Zajęcia</h1>
             <p className="text-xl text-red-100">
-              Oferujemy zajęcia dla wszystkich grup wiekowych i poziomów zaawansowania — od najmłodszych po doświadczonych tancerzy.
+              Oferujemy zajęcia dla wszystkich grup wiekowych i poziomów
+              zaawansowania — od najmłodszych po doświadczonych tancerzy.
             </p>
           </div>
         </div>
@@ -188,7 +205,9 @@ export function Classes() {
                   </div>
                   <div>
                     <h3 className="font-bold mb-1">Zapisy</h3>
-                    <p className="text-gray-600">Zapisy przez cały rok szkolny</p>
+                    <p className="text-gray-600">
+                      Zapisy przez cały rok szkolny
+                    </p>
                   </div>
                 </div>
               </div>
@@ -221,13 +240,19 @@ export function Classes() {
                 className={`bg-white rounded-2xl overflow-hidden border-2 ${group.color} shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col`}
               >
                 {/* Card Header */}
-                <div className={`${group.headerColor} ${group.name === "Pary turniejowe" ? "text-white" : ""} p-6 flex items-center gap-4`}>
+                <div
+                  className={`${group.headerColor} ${group.name === "Pary turniejowe" ? "text-white" : ""} p-6 flex items-center gap-4`}
+                >
                   <span className="text-4xl">{group.emoji}</span>
                   <div>
-                    <h3 className={`text-2xl font-bold ${group.name === "Pary turniejowe" ? "text-white" : "text-gray-900"}`}>
+                    <h3
+                      className={`text-2xl font-bold ${group.name === "Pary turniejowe" ? "text-white" : "text-gray-900"}`}
+                    >
                       {group.name}
                     </h3>
-                    <p className={`text-sm ${group.name === "Pary turniejowe" ? "text-red-100" : "text-gray-500"}`}>
+                    <p
+                      className={`text-sm ${group.name === "Pary turniejowe" ? "text-red-100" : "text-gray-500"}`}
+                    >
                       {group.ageRange}
                     </p>
                   </div>
@@ -243,7 +268,10 @@ export function Classes() {
                 <div className="p-6 flex flex-col flex-1">
                   <div className="space-y-3 mb-5 text-sm">
                     {group.schedules.map((s) => (
-                      <div key={s} className="flex items-start gap-2 text-gray-600">
+                      <div
+                        key={s}
+                        className="flex items-start gap-2 text-gray-600"
+                      >
                         <Clock className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
                         <span>{s}</span>
                       </div>
@@ -263,7 +291,9 @@ export function Classes() {
                   </p>
 
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
-                    <span className="text-2xl font-bold text-red-700">{group.price}</span>
+                    <span className="text-2xl font-bold text-red-700">
+                      {group.price}
+                    </span>
                     <Link
                       to={SIGNUP_LINK}
                       className="bg-red-700 text-white px-6 py-2 rounded-lg hover:bg-red-800 transition-colors font-semibold text-sm inline-flex items-center gap-2"
@@ -284,12 +314,16 @@ export function Classes() {
           <div className="text-center mb-14">
             <h2 className="text-3xl font-bold mb-4">Co zyskujesz?</h2>
             <p className="text-gray-500 max-w-xl mx-auto">
-              Dołączając do naszego klubu, otrzymujesz znacznie więcej niż tylko lekcje tańca.
+              Dołączając do naszego klubu, otrzymujesz znacznie więcej niż tylko
+              lekcje tańca.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
             {benefits.map((benefit) => (
-              <div key={benefit} className="flex items-start gap-4 bg-gray-50 p-5 rounded-xl">
+              <div
+                key={benefit}
+                className="flex items-start gap-4 bg-gray-50 p-5 rounded-xl"
+              >
                 <CheckCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
                 <p className="text-gray-700">{benefit}</p>
               </div>
@@ -341,10 +375,12 @@ export function Classes() {
             Bezpłatna lekcja próbna!
           </h2>
           <p className="text-gray-300 text-xl mb-4">
-            Nie jesteś pewien, czy taniec jest dla Ciebie? Przyjdź i przekonaj się bez żadnych zobowiązań.
+            Nie jesteś pewien, czy taniec jest dla Ciebie? Przyjdź i przekonaj
+            się bez żadnych zobowiązań.
           </p>
           <p className="text-gray-400 mb-12">
-            Wystarczy jeden telefon lub wiadomość — ustalimy termin i grupę odpowiednią dla Ciebie.
+            Wystarczy jeden telefon lub wiadomość — ustalimy termin i grupę
+            odpowiednią dla Ciebie.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
@@ -354,10 +390,10 @@ export function Classes() {
               Umów lekcję próbną
             </Link>
             <a
-              href="tel:+48785899858"
+              href="tel:+48785457340"
               className="inline-block bg-white/10 border border-white/30 text-white px-10 py-4 rounded-lg font-semibold hover:bg-white/20 transition-colors text-lg"
             >
-              Zadzwoń: +48 785 899 858
+              Zadzwoń: +48 785 457 340
             </a>
           </div>
         </div>

@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm --version)",
+      "Bash(npm --version)",
+      "Bash(npm i *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git rm *)",
+      "Bash(git check-ignore *)",
+      "Bash(git commit -m ' *)",
+      "Bash(gh auth *)",
+      "Bash(git remote *)",
+      "Bash(git fetch *)",
+      "Bash(git reset *)",
+      "Bash(git ls-remote *)",
+      "Bash(git push *)",
+      "Bash(gh api *)",
+      "Bash(gh run *)",
+      "Bash(dig +short A wktp-poznan.pl)",
+      "Bash(dig +short CNAME www.wktp-poznan.pl)",
+      "Bash(curl -sI http://wktp-poznan.pl/ --max-time 10)",
+      "Bash(curl -sI https://wktp-poznan.pl/ --max-time 10)",
+      "Bash(dig +short A wktp-poznan.pl @8.8.8.8)",
+      "Bash(dig +short A wktp-poznan.pl @1.1.1.1)",
+      "Bash(curl -v http://wktp-poznan.pl/ --max-time 10)",
+      "Bash(curl -sI --resolve wktp-poznan.pl:80:185.199.108.153 http://wktp-poznan.pl/ --max-time 10)",
+      "Bash(curl -sI --resolve wktp-poznan.pl:443:185.199.108.153 https://wktp-poznan.pl/ --max-time 10)",
+      "Bash(scutil --dns)",
+      "Bash(dig wktp-poznan.pl +noall +answer)",
+      "Bash(dig wktp-poznan.pl @8.8.8.8 +noall +answer)",
+      "Bash(curl -s --resolve wktp-poznan.pl:443:185.199.108.153 https://wktp-poznan.pl/robots.txt --max-time 10)",
+      "Bash(curl -s --resolve wktp-poznan.pl:443:185.199.108.153 https://wktp-poznan.pl/ --max-time 10)",
+      "Read(//tmp/preview/**)",
+      "Read(//private/tmp/preview/**)",
+      "Bash(chmod +x /private/tmp/claude-501/-Users-kamilszmajdzinski-Documents-projects-WKTP-NEW-wktp-main/be463cc1-c320-40d7-84cd-65c0e08181c9/scratchpad/process_gallery.sh)",
+      "Bash(bash /private/tmp/claude-501/-Users-kamilszmajdzinski-Documents-projects-WKTP-NEW-wktp-main/be463cc1-c320-40d7-84cd-65c0e08181c9/scratchpad/process_gallery.sh)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/kamilszmajdzinski/Documents/projects/WKTP_NEW/wktp-main/design/src/imports/photos/home-hero.jpg)"
+    ]
+  }
+}
